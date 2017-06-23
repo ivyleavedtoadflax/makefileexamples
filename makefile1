@@ -1,0 +1,9 @@
+SUBDIRS := $(wildcard */)
+ZIPS := $(addsuffix .zip,$(subst /,,$(SUBDIRS)))
+
+$(ZIPS) : %.zip : | %
+	echo $@ $*/*.csv
+	echo $(SUBDIRS)
+	echo $(ZIPS)
+
+dist: $(ZIPS)
